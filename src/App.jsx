@@ -1,3 +1,4 @@
+import Benifits from "./components/Benifits";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
@@ -6,7 +7,7 @@ const App = () => {
     <main>
       <Navbar />
       <Hero />
-      {/* Benifits */}
+      <Benifits />
     </main>
   );
 };

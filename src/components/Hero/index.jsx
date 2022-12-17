@@ -5,7 +5,7 @@ import Img2 from "../../assets/landing2.png";
 const Hero = () => {
   return (
     <div className="w-full">
-      <div className="max-w-[1024px] mx-auto min-h-[450px] flex items-center justify-between">
+      <div className="max-w-[1024px] mx-auto min-h-[650px] flex items-center justify-between">
         {/* Left */}
         <div>
           <h1 className="font-Poppins text-gray-900 leading-[3rem] font-bold text-4xl">

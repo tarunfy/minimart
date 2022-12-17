@@ -3,7 +3,7 @@ import Logo from "../../assets/logo.svg";
 
 const Navbar = () => {
   return (
-    <div className="py-4 border-b sticky top-0 left-0 right-0 bg-white/40 backdrop-blur-sm">
+    <div className="py-4 border-b sticky z-50 top-0 left-0 right-0 bg-white/40 backdrop-blur-sm">
       <div className="flex items-center justify-between max-w-[1024px] mx-auto">
         <img src={Logo} alt="logo" />
         <div className="flex items-center justify-between space-x-4">
