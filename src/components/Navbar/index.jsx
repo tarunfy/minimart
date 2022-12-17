@@ -19,7 +19,7 @@ const Navbar = () => {
               <span className="text-xs">1</span>
             </div>
           </button>
-          <button className="btn-secondary">Login</button>
+          <button className="btn btn-secondary">Login</button>
         </div>
       </div>
     </div>

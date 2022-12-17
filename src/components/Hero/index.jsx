@@ -17,13 +17,14 @@ const Hero = () => {
                 loop: true,
               }}
             />
-            at unbeatable <br /> prices.
+            at unbeatable <br /> prices{" "}
+            <span className="animate-waving-hand inline-block">👋</span>
           </h1>
           <p className="my-4 text-sm font-Poppins text-gray-600 max-w-sm">
             Shop the latest brand items at unbeatable prices. Rebrand your
             collections now!
           </p>
-          <button className="btn-primary text-xl">Shop Now</button>
+          <button className="btn btn-primary text-xl">Shop Now</button>
         </div>
 
         {/* Right */}
