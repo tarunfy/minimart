@@ -1,9 +1,13 @@
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+
 const App = () => {
   return (
-    <div>
-      <h1 className="title">Hello world!</h1>
-      <h1 className="title text-4xl text-indigo-500">My title</h1>
-    </div>
+    <main>
+      <Navbar />
+      <Hero />
+      {/* Benifits */}
+    </main>
   );
 };
 
