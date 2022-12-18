@@ -10,13 +10,11 @@ const settings = {
 
 const Carousel = ({ products }) => {
   return (
-    <>
-      <Slider {...settings} autoplay>
-        {products.map((d) => (
-          <ProductCard product={d} key={d.id} />
-        ))}
-      </Slider>
-    </>
+    <Slider {...settings} autoplay>
+      {products.map((d) => (
+        <ProductCard product={d} key={d.id} />
+      ))}
+    </Slider>
   );
 };
 

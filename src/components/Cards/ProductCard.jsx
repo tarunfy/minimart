@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsPlus } from "react-icons/bs";
+import { Badge, Center } from "@chakra-ui/react";
 
 const ProductCard = ({ product }) => {
   return (
-    <div className="border p-4 mr-4 rounded-md">
+    <div className="border p-4 mr-4 rounded-md hover:border-lime-500 transition-all duration-300">
       <Link to={`/products/${product.id}`}>
         <div className="space-y-1">
           <img
@@ -15,9 +16,9 @@ const ProductCard = ({ product }) => {
           <h3 className="text-center max-w-[15rem] mx-auto font-Poppins truncate">
             {product.title}
           </h3>
-          <p className="text-center font-medium text-sm text-lime-600">
-            {product.category}
-          </p>
+          <Center>
+            <Badge>{product.category}</Badge>
+          </Center>
         </div>
       </Link>
       {/* Add to cart */}

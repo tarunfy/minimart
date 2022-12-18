@@ -33,8 +33,11 @@ const benifits = [
 
 const Benifits = () => {
   return (
-    <div className="w-full bg-slate-50 border">
-      <div className="grid grid-cols-4 gap-4 max-w-[1024px] mx-auto py-20">
+    <div className="w-full bg-slate-50 border py-20">
+      <h1 className="text-center font-bold font-Poppins text-3xl mb-4">
+        What we offer
+      </h1>
+      <div className="grid grid-cols-2 gap-4 max-w-[1024px] mx-auto ">
         {benifits.map((b) => (
           <BenifitCard benifit={b} key={b.id} />
         ))}
