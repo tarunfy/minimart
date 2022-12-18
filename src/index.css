@@ -28,4 +28,8 @@
   .btn-secondary {
     @apply font-medium hover:bg-slate-600/90 transition-colors bg-slate-600;
   }
-} ;
+}
+
+.slick-arrow::before {
+  color: rgb(43, 43, 43) !important;
+}

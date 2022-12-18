@@ -1,14 +1,15 @@
-import Benifits from "./components/Benifits";
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router";
+import Home from "./pages/home";
+import ProductInfo from "./pages/productInfo";
 
 const App = () => {
   return (
-    <main>
-      <Navbar />
-      <Hero />
-      <Benifits />
-    </main>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products/:id" element={<ProductInfo />} />
+      </Routes>
+    </>
   );
 };
 

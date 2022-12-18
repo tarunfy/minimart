@@ -1,6 +1,6 @@
 const BenifitCard = ({ benifit }) => {
   return (
-    <div className="p-6 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300  rounded-lg border flex items-start justify-between space-x-2">
+    <div className="p-6 font-Poppins bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300  rounded-lg border flex items-start justify-between space-x-2">
       <div className="bg-gradient-to-tr from-lime-500 to-green-500 rounded-full p-2 text-white">
         {benifit.icon}
       </div>
