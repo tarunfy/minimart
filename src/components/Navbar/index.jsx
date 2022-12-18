@@ -1,5 +1,6 @@
-import { FiHeart, FiShoppingCart } from "react-icons/fi";
+import { FiHeart } from "react-icons/fi";
 import Logo from "../../assets/logo.svg";
+import CartBtn from "../Cart";
 
 const Navbar = () => {
   return (
@@ -13,12 +14,7 @@ const Navbar = () => {
               <span className="text-xs">1</span>
             </div>
           </button>
-          <button className="relative p-2">
-            <FiShoppingCart className="!h-7 !w-7" />
-            <div className="cart-num">
-              <span className="text-xs">1</span>
-            </div>
-          </button>
+          <CartBtn />
           <button className="btn btn-secondary">Login</button>
         </div>
       </div>
