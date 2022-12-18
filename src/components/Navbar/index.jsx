@@ -8,9 +8,7 @@ const Navbar = () => {
     <div className="py-4 border-b sticky z-50 top-0 left-0 right-0 bg-white/40 backdrop-blur-sm">
       <div className="flex items-center justify-between max-w-[1024px] mx-auto">
         <Link to="/">
-          <a>
-            <img src={Logo} alt="logo" />
-          </a>
+          <img src={Logo} alt="logo" />
         </Link>
         <div className="flex items-center justify-between space-x-4">
           <button className="relative p-2">

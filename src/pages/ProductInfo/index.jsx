@@ -36,7 +36,7 @@ const productInfo = () => {
       }
     }
     getProductInfo();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const filteredData = products.filter(
