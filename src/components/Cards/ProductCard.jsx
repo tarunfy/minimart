@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BsPlus } from "react-icons/bs";
 
 const ProductCard = ({ product }) => {
   return (
-    <Link to={`/products/${product.id}`}>
-      <div className="border p-4 mr-2 rounded-md">
+    <div className="border p-4 mr-4 rounded-md">
+      <Link to={`/products/${product.id}`}>
         <div className="space-y-1">
           <img
             src={product.image}
@@ -18,8 +19,17 @@ const ProductCard = ({ product }) => {
             {product.category}
           </p>
         </div>
+      </Link>
+      {/* Add to cart */}
+      <div className="flex justify-end">
+        <button
+          onClick={() => console.log(product.id)}
+          className="btn-primary hover:!translate-y-0  text-white rounded-full p-2"
+        >
+          <BsPlus className="h-6 w-6" />
+        </button>
       </div>
-    </Link>
+    </div>
   );
 };
 

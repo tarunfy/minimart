@@ -1,14 +1,6 @@
-import ProductCard from "../../Cards/ProductCard";
-import Slider from "react-slick";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-const settings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 4,
-};
+import Carousel from "../../Carousel";
 
 const AllProducts = () => {
   const [data, setData] = useState([]);
@@ -21,14 +13,11 @@ const AllProducts = () => {
     get();
   }, []);
   return (
-    <div>
-      <div className="max-w-[1024px] mx-auto  py-20">
-        <Slider {...settings}>
-          {data.map((d) => (
-            <ProductCard product={d} key={d.id} />
-          ))}
-        </Slider>
-      </div>
+    <div className="max-w-[1024px] mx-auto py-20">
+      <h1 className="text-3xl font-Poppins font-bold mb-5 text-center">
+        All Products
+      </h1>
+      <Carousel products={data} />
     </div>
   );
 };

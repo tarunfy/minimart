@@ -1,3 +1,4 @@
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import Typewriter from "typewriter-effect";
 import Img1 from "../../assets/landing.png";
 import Img2 from "../../assets/landing2.png";
@@ -24,7 +25,9 @@ const Hero = () => {
             Shop the latest brand items at unbeatable prices. Rebrand your
             collections now!
           </p>
-          <button className="btn btn-primary text-xl">Shop Now</button>
+          <AnchorLink href="#products">
+            <button className="btn btn-primary text-xl">Shop Now</button>
+          </AnchorLink>
         </div>
 
         {/* Right */}
