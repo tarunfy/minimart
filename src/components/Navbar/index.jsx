@@ -1,12 +1,17 @@
 import { FiHeart } from "react-icons/fi";
 import Logo from "../../assets/logo.svg";
 import CartBtn from "../Cart";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div className="py-4 border-b sticky z-50 top-0 left-0 right-0 bg-white/40 backdrop-blur-sm">
       <div className="flex items-center justify-between max-w-[1024px] mx-auto">
-        <img src={Logo} alt="logo" />
+        <Link to="/">
+          <a>
+            <img src={Logo} alt="logo" />
+          </a>
+        </Link>
         <div className="flex items-center justify-between space-x-4">
           <button className="relative p-2">
             <FiHeart className="!h-7 !w-7" />

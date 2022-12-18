@@ -1,9 +1,9 @@
-import { Button, ButtonGroup, Center } from "@chakra-ui/react";
+import { Button, ButtonGroup, Center, Spinner } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { FaMale, FaFemale } from "react-icons/fa";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { ImHeadphones } from "react-icons/im";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import ProductList from "../../List/ProductList";
 import { productsSelector } from "../../../features/products/productsSlice";
 
@@ -11,13 +11,20 @@ const ShopByCategories = () => {
   const [filterType, setFilterType] = useState("men's clothing");
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const { products } = useSelector(productsSelector);
-  const dispatch = useDispatch();
+  const { products, isFetching } = useSelector(productsSelector);
 
   useEffect(() => {
     const filteredData = products.filter((p) => p.category === filterType);
     setFilteredProducts(filteredData);
   }, [filterType, products]);
+
+  if (isFetching) {
+    return (
+      <Center>
+        <Spinner size="lg" />
+      </Center>
+    );
+  }
 
   return (
     <div>

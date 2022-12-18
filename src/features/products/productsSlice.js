@@ -3,8 +3,8 @@ import { myAxios } from "../../api/config";
 
 const initialState = {
   products: [],
-  product: {},
   cart: [],
+  likedProducts: [],
   isFetching: false,
   error: null,
 };
@@ -29,6 +29,8 @@ const productSlice = createSlice({
     //add a product to the cart
     //remove a product from the cart
     //clear cart
+    //like a product
+    //remove from like list
   },
   extraReducers(builder) {
     builder
