@@ -1,16 +1,23 @@
 import { Tooltip } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiHeart } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToWishlist,
+  productsSelector,
   removeFromWishlist,
 } from "../../../features/products/productsSlice";
 import { userSelector } from "../../../features/user/userSlice";
 
 const LikeButton = ({ productId }) => {
   const [isLiked, setIsLiked] = useState(false);
+
+  const { likedProducts } = useSelector(productsSelector);
   const { isLoggedIn } = useSelector(userSelector);
+
+  useEffect(() => {
+    setIsLiked(likedProducts.find((p) => p.id === productId));
+  }, [likedProducts]);
 
   const dispatch = useDispatch();
 

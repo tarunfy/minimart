@@ -9,11 +9,7 @@ import Navbar from "../../components/Navbar";
 import ProductList from "../../components/List/ProductList";
 import { useSelector } from "react-redux";
 import { productsSelector } from "../../features/products/productsSlice";
-
-const f = new Intl.NumberFormat("en-us", {
-  currency: "USD",
-  style: "currency",
-});
+import { formatToCurrency } from "../../utils/helpers";
 
 const productInfo = () => {
   const [similarProducts, setSimilarProducts] = useState([]);
@@ -89,7 +85,7 @@ const productInfo = () => {
               ({product?.rating.count})
             </p>
             <h2 className="text-xl font-Poppins font-semibold my-3">
-              {f.format(product?.price)}
+              {formatToCurrency.format(product?.price)}
             </h2>
             <p className="text-gray-500 font-Poppins">{product?.description}</p>
             <div className="mt-3 space-x-1">

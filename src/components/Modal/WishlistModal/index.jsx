@@ -10,11 +10,14 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { FiHeart } from "react-icons/fi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { productsSelector } from "../../../features/products/productsSlice";
+import WishList from "../../List/Wishlist";
+import { clearWishList } from "../../../features/products/productsSlice";
 
 const WishistModal = () => {
   const { likedProducts } = useSelector(productsSelector);
+  const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -29,23 +32,29 @@ const WishistModal = () => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+        <ModalContent className="!min-w-[800px] !max-h-[600px] overflow-scroll">
+          <ModalHeader>Your wishlist({likedProducts.length})</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-              distinctio dicta! Perferendis ea quibusdam temporibus repellendus.
-              Officiis nam quis in, et ex ipsa labore placeat quidem optio?
-              Eaque, dicta atque?
-            </p>
+            {likedProducts.length > 0 ? (
+              <WishList likedProducts={likedProducts} />
+            ) : (
+              "Oops nothing here..."
+            )}
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="red" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
+            <Button
+              disabled={!likedProducts.length}
+              onClick={() => dispatch(clearWishList())}
+              variant="solid"
+              colorScheme="blue"
+            >
+              Clear whislist
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
