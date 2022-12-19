@@ -1,20 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isLoggedIn: false,
+  isLoggedIn: localStorage.getItem("isLoggedIn") || false,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    //add a product to the cart
-    //remove a product from the cart
-    //clear cart
+    login(state) {
+      state.isLoggedIn = true;
+      localStorage.setItem("isLoggedIn", true);
+    },
+    logout(state) {
+      state.isLoggedIn = false;
+      localStorage.removeItem("isLoggedIn");
+    },
   },
-  extraReducers: {},
 });
 
-export const {} = userSlice.actions;
+export const userSelector = (state) => state.user;
+
+export const { login, logout } = userSlice.actions;
 
 export default userSlice.reducer;

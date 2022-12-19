@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BsPlus } from "react-icons/bs";
 import { Badge, Center } from "@chakra-ui/react";
+import LikeButton from "../Buttons/LikeButton";
 
 const ProductCard = ({ product }) => {
   return (
@@ -21,14 +21,9 @@ const ProductCard = ({ product }) => {
           </Center>
         </div>
       </Link>
-      {/* Add to cart */}
-      <div className="flex justify-end">
-        <button
-          onClick={() => console.log(product.id)}
-          className="btn-primary hover:!translate-y-0  text-white rounded-full p-2"
-        >
-          <BsPlus className="h-6 w-6" />
-        </button>
+      <div className="flex items-center justify-end mt-6">
+        {/* Like product */}
+        <LikeButton productId={product.id} />
       </div>
     </div>
   );
