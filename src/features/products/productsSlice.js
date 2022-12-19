@@ -27,7 +27,28 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     //add a product to the cart
+    addToCart(state, action) {
+      const alreadyPresent = current(state).cart.find(
+        (p) => p.id === action.payload
+      );
+      if (alreadyPresent) {
+        return;
+      }
+      const product = current(state).products.find(
+        (p) => p.id == action.payload
+      );
+      if (product) {
+        state.cart.push(product);
+      }
+    },
+
     //remove a product from the cart
+    removeFromCart(state, action) {
+      const filteredCart = current(state).cart.filter(
+        (p) => p.id === action.payload
+      );
+      state.cart = filteredCart;
+    },
     //clear cart
 
     //like a product
@@ -71,7 +92,12 @@ const productSlice = createSlice({
 
 export const productsSelector = (state) => state.products;
 
-export const { addToWishlist, removeFromWishlist, clearWishList } =
-  productSlice.actions;
+export const {
+  addToWishlist,
+  removeFromWishlist,
+  clearWishList,
+  removeFromCart,
+  addToCart,
+} = productSlice.actions;
 
 export default productSlice.reducer;

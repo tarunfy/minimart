@@ -7,9 +7,14 @@ import { FaShoppingCart } from "react-icons/fa";
 import { BsLightningFill } from "react-icons/bs";
 import Navbar from "../../components/Navbar";
 import ProductList from "../../components/List/ProductList";
-import { useSelector } from "react-redux";
-import { productsSelector } from "../../features/products/productsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  productsSelector,
+  removeFromCart,
+} from "../../features/products/productsSlice";
 import { formatToCurrency } from "../../utils/helpers";
+import { userSelector } from "../../features/user/userSlice";
+import { addToCart } from "../../features/products/productsSlice";
 
 const productInfo = () => {
   const [similarProducts, setSimilarProducts] = useState([]);
@@ -17,8 +22,11 @@ const productInfo = () => {
   const [product, setProduct] = useState({});
   const [isFetching, setIsFetching] = useState(true);
   const [error, setError] = useState(null);
+  const [isPresentInCart, setIsPresentInCart] = useState(false);
+  const dispatch = useDispatch();
 
-  const { products } = useSelector(productsSelector);
+  const { products, cart } = useSelector(productsSelector);
+  const { isLoggedIn } = useSelector(userSelector);
 
   useEffect(() => {
     async function getProductInfo() {
@@ -33,6 +41,15 @@ const productInfo = () => {
     }
     getProductInfo();
   }, [id]);
+
+  useEffect(() => {
+    const present = cart.find((p) => p.id === product.id);
+    if (present) {
+      setIsPresentInCart(true);
+    } else {
+      setIsPresentInCart(false);
+    }
+  }, [id, product, cart]);
 
   useEffect(() => {
     const filteredData = products.filter(
@@ -90,13 +107,18 @@ const productInfo = () => {
             <p className="text-gray-500 font-Poppins">{product?.description}</p>
             <div className="mt-3 space-x-1">
               <Button
+                disabled={!isLoggedIn}
                 leftIcon={<FaShoppingCart />}
                 colorScheme="red"
                 variant="solid"
+                onClick={() =>
+                  dispatch(isPresentInCart ? removeFromCart(id) : addToCart(id))
+                }
               >
-                Add to cart
+                {isPresentInCart ? "Remove from cart" : "Add to cart"}
               </Button>
               <Button
+                disabled={!isLoggedIn}
                 leftIcon={<BsLightningFill />}
                 colorScheme="orange"
                 variant="solid"

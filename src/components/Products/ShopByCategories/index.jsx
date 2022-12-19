@@ -28,7 +28,7 @@ const ShopByCategories = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-Poppins font-bold mb-5 text-center">
+      <h1 className="text-5xl font-Poppins font-bold mb-6 text-center">
         Shop by Categories
       </h1>
       <Center>

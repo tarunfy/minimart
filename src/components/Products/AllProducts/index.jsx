@@ -25,7 +25,7 @@ const AllProducts = () => {
 
   return (
     <div className="max-w-[1024px] mx-auto py-20">
-      <h1 className="text-3xl font-Poppins font-bold mb-5 text-center">
+      <h1 className="text-5xl font-Poppins font-bold mb-5 text-center">
         All Products
       </h1>
       {!isFetching ? (
