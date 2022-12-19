@@ -28,6 +28,7 @@ const productSlice = createSlice({
   reducers: {
     //add a product to the cart
     addToCart(state, action) {
+      console.log(action.payload);
       const alreadyPresent = current(state).cart.find(
         (p) => p.id === action.payload
       );
@@ -44,9 +45,11 @@ const productSlice = createSlice({
 
     //remove a product from the cart
     removeFromCart(state, action) {
+      console.log(action.payload, current(state).cart);
       const filteredCart = current(state).cart.filter(
-        (p) => p.id === action.payload
+        (p) => p.id !== Number(action.payload)
       );
+      console.log("filtered Cart", filteredCart);
       state.cart = filteredCart;
     },
     //clear cart
