@@ -2,12 +2,13 @@ import { IconButton, Tag, Tooltip } from "@chakra-ui/react";
 import { AiTwotoneStar } from "react-icons/ai";
 import { formatToCurrency } from "../../../utils/helpers";
 import { MdDelete } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeFromWishlist } from "../../../features/products/productsSlice";
+import { userSelector } from "../../../features/user/userSlice";
 
 const WishList = ({ likedProducts }) => {
   const dispatch = useDispatch();
-
+  const { isLoggedIn } = useSelector(userSelector);
   return (
     <div className="p-2">
       {likedProducts.map((p) => (
@@ -23,7 +24,10 @@ const WishList = ({ likedProducts }) => {
             <div className="flex items-center justify-between">
               <h1 className="text-base font-Poppins max-w-lg">{p.title}</h1>
               <Tooltip label="remove" hasArrow placement="top">
-                <IconButton onClick={() => dispatch(removeFromWishlist(p.id))}>
+                <IconButton
+                  disabled={!isLoggedIn}
+                  onClick={() => dispatch(removeFromWishlist(p.id))}
+                >
                   <MdDelete />
                 </IconButton>
               </Tooltip>
