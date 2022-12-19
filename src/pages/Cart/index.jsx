@@ -3,7 +3,7 @@ import Checkout from "../../components/Cart/Checkout";
 
 const cart = () => {
   return (
-    <div className="max-w-[1024px] mx-auto min-h-screen grid grid-cols-4 place-items-center">
+    <div className="max-w-[1024px] mx-auto min-h-screen flex justify-center items-start flex-col">
       <CartContent />
       <Checkout />
     </div>

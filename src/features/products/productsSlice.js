@@ -28,13 +28,6 @@ const productSlice = createSlice({
   reducers: {
     //add a product to the cart
     addToCart(state, action) {
-      console.log(action.payload);
-      const alreadyPresent = current(state).cart.find(
-        (p) => p.id === action.payload
-      );
-      if (alreadyPresent) {
-        return;
-      }
       const product = current(state).products.find(
         (p) => p.id == action.payload
       );

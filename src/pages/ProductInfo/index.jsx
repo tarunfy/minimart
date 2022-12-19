@@ -15,6 +15,7 @@ import {
 import { formatToCurrency } from "../../utils/helpers";
 import { userSelector } from "../../features/user/userSlice";
 import { addToCart } from "../../features/products/productsSlice";
+import CategoryChip from "../../components/Chip/CategoryChip";
 
 const productInfo = () => {
   const [similarProducts, setSimilarProducts] = useState([]);
@@ -89,9 +90,7 @@ const productInfo = () => {
 
           {/* right */}
           <div className="pt-10">
-            <h5 className="px-2 py-1 bg-gradient-to-tr from-lime-400 to-green-600 text-white font-medium mb-2 text-sm font-Poppins w-fit rounded-lg">
-              {product?.category}
-            </h5>
+            <CategoryChip product={product} />
             <h1 className="text-3xl font-bold font-Poppins mb-1">
               {product?.title}
             </h1>
