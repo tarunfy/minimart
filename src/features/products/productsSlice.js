@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import { myAxios } from "../../api/config";
 
 const initialState = {
@@ -30,7 +30,21 @@ const productSlice = createSlice({
     //remove a product from the cart
     //clear cart
     //like a product
+    addToWishlist(state, action) {
+      const product = current(state).products.find(
+        (p) => p.id === action.payload
+      );
+      if (product) {
+        state.likedProducts.push(product);
+      }
+    },
     //remove from like list
+    removeFromWishlist(state, action) {
+      const filteredList = current(state).likedProducts.filter(
+        (p) => p.id !== action.payload
+      );
+      state.likedProducts = filteredList;
+    },
   },
   extraReducers(builder) {
     builder
@@ -50,6 +64,6 @@ const productSlice = createSlice({
 
 export const productsSelector = (state) => state.products;
 
-export const {} = productSlice.actions;
+export const { addToWishlist, removeFromWishlist } = productSlice.actions;
 
 export default productSlice.reducer;

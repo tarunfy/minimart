@@ -22,7 +22,6 @@ const ProductCard = ({ product }) => {
         </div>
       </Link>
       <div className="flex items-center justify-end mt-6">
-        {/* Like product */}
         <LikeButton productId={product.id} />
       </div>
     </div>

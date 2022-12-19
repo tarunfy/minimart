@@ -10,16 +10,21 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { FiHeart } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import { productsSelector } from "../../../features/products/productsSlice";
 
 const WishistModal = () => {
+  const { likedProducts } = useSelector(productsSelector);
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <button onClick={onOpen} className="relative p-2">
         <FiHeart className="!h-7 !w-7" />
-        <div className="cart-num">
-          <span className="text-xs">1</span>
-        </div>
+        {likedProducts.length > 0 && (
+          <div className="cart-num">
+            <span className="text-xs">{likedProducts.length}</span>
+          </div>
+        )}
       </button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
