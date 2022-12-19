@@ -1,11 +1,12 @@
-import { IoBagRemove } from "react-icons/io5";
+import { FaShoppingCart } from "react-icons/fa";
 
 const CartContent = () => {
   return (
-    <div>
-      <h1 className="font-Poppins text-4xl tracking-tighter font-bold">
-        Your Bag <IoBagRemove className="inline" />
+    <div className="col-span-3 w-full">
+      <h1 className="font-Poppins text-4xl tracking-tighter font-bold text-gray-800">
+        Your Cart <FaShoppingCart className="inline ml-1" />
       </h1>
+      <div></div>
     </div>
   );
 };
