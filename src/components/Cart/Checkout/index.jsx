@@ -19,7 +19,7 @@ const Checkout = () => {
   }, [cart]);
 
   return (
-    <div className="border shadow-md rounded-sm font-Poppins p-5 min-w-[400px]">
+    <div className="border shadow-sm rounded-sm font-Poppins p-5 min-w-[400px]">
       <div className="border-b pb-2">
         <h1 className="text-2xl font-bold ">Summary</h1>
       </div>

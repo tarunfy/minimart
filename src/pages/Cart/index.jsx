@@ -10,7 +10,7 @@ const cart = () => {
   const { cart } = useSelector(productsSelector);
 
   return (
-    <div className="max-w-[1024px] mx-auto min-h-screen flex justify-center items-start flex-col space-y-6">
+    <div className="max-w-[1024px] py-10 mx-auto min-h-screen flex justify-center items-start flex-col space-y-6">
       <Link to="/">
         <Button className="!font-Poppins" leftIcon={<BsArrowLeft />}>
           Go Home
