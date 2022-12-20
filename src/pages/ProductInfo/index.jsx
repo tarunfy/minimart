@@ -108,7 +108,11 @@ const productInfo = () => {
                 colorScheme="red"
                 variant="solid"
                 onClick={() =>
-                  dispatch(isPresentInCart ? removeFromCart(id) : addToCart(id))
+                  dispatch(
+                    isPresentInCart
+                      ? removeFromCart(id)
+                      : addToCart({ id, quantity: 1 })
+                  )
                 }
               >
                 {isPresentInCart ? "Remove from cart" : "Add to cart"}
