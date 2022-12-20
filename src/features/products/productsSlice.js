@@ -38,14 +38,17 @@ const productSlice = createSlice({
 
     //remove a product from the cart
     removeFromCart(state, action) {
-      console.log(action.payload, current(state).cart);
       const filteredCart = current(state).cart.filter(
         (p) => p.id !== Number(action.payload)
       );
-      console.log("filtered Cart", filteredCart);
+
       state.cart = filteredCart;
     },
-    //clear cart
+
+    //update cart:
+    updateCart(state, action) {
+      state.cart = action.payload;
+    },
 
     //like a product
     addToWishlist(state, action) {
@@ -94,6 +97,7 @@ export const {
   clearWishList,
   removeFromCart,
   addToCart,
+  updateCart,
 } = productSlice.actions;
 
 export default productSlice.reducer;
