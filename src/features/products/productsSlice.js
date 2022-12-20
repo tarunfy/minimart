@@ -62,7 +62,8 @@ const productSlice = createSlice({
       const productIndex = state.cart.findIndex((p) => p.id === productId);
       if (productIndex >= 0) {
         // Descrease the quantity if the product is already in the cart
-        state.cart[productIndex].quantity - 1;
+        state.cart[productIndex].quantity =
+          state.cart[productIndex].quantity - 1;
       }
     },
 

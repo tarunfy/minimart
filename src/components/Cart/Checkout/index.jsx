@@ -11,9 +11,8 @@ const Checkout = () => {
   useEffect(() => {
     setTotal(0);
     let sum = 0;
-    const priceArray = cart.map((p) => p.price);
-    priceArray.forEach((val) => {
-      sum = sum + val;
+    cart.forEach((p) => {
+      sum = sum + p.price * p.quantity;
     });
     setTotal(sum);
   }, [cart]);

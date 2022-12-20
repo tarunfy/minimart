@@ -7,26 +7,22 @@ import {
   increaseQuantity,
   decreaseQuantity,
 } from "../../features/products/productsSlice";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const CartListItem = ({ p }) => {
-  const [quantity, setQuantity] = useState(p.quantity);
   const dispatch = useDispatch();
 
   const incrementQuantity = () => {
-    setQuantity((prev) => prev + 1);
     dispatch(increaseQuantity(p.id));
   };
 
   const decrementQuantity = () => {
-    if (quantity === 1) {
+    if (p.quantity === 1) {
       dispatch(removeFromCart(p.id));
       return;
     }
     dispatch(decreaseQuantity(p.id));
-    setQuantity((prev) => prev - 1);
   };
 
   return (
@@ -49,7 +45,7 @@ const CartListItem = ({ p }) => {
       {/* Price */}
       <Td>
         <span className="font-medium">
-          {formatToCurrency.format(p.price * quantity)}
+          {formatToCurrency.format(p.price * p.quantity)}
         </span>
       </Td>
       {/* Quantity */}
@@ -58,7 +54,7 @@ const CartListItem = ({ p }) => {
           <IconButton onClick={incrementQuantity}>
             <MdAdd />
           </IconButton>
-          <span>{quantity}</span>
+          <span>{p.quantity}</span>
           <IconButton onClick={decrementQuantity}>
             <RiSubtractLine />
           </IconButton>
