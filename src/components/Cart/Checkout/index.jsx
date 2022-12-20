@@ -27,10 +27,6 @@ const Checkout = () => {
         <span>{cart.length}</span>
       </div>
       <div className="flex items-center justify-between my-4">
-        <h3 className="font-medium uppercase">Shipping</h3>
-        <span className="text-green-500">Free</span>
-      </div>
-      <div className="flex items-center justify-between my-4">
         <h3 className="font-medium uppercase">Subtotal</h3>
         <span>{formatToCurrency.format(total)}</span>
       </div>
