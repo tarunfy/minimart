@@ -13,9 +13,11 @@ import { Link } from "react-router-dom";
 import { updateCart } from "../../features/products/productsSlice";
 
 const CartListItem = ({ p }) => {
-  const [quantity, setQuantity] = useState(1);
-  const dispatch = useDispatch();
   const { cart } = useSelector(productsSelector);
+  const quantityInCart = cart.filter((product) => product.id === p.id).length;
+
+  const [quantity, setQuantity] = useState(quantityInCart || 1);
+  const dispatch = useDispatch();
 
   const incrementQuantity = () => {
     setQuantity((prev) => prev + 1);

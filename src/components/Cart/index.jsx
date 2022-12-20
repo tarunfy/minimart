@@ -16,23 +16,31 @@ const CartContent = () => {
           Your Cart <FaShoppingCart className="inline ml-1" />
         </h1>
       </div>
-      <TableContainer>
-        <Table variant="simple">
-          <Thead>
-            <Tr>
-              <Th>Product</Th>
-              <Th>Price</Th>
-              <Th>Quantity</Th>
-              <Th></Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {uniqueCart.map((p) => (
-              <CartListItem p={p} key={p.id} />
-            ))}
-          </Tbody>
-        </Table>
-      </TableContainer>
+      {uniqueCart.length > 0 ? (
+        <TableContainer>
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th>Product</Th>
+                <Th>Price</Th>
+                <Th>Quantity</Th>
+                <Th></Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {uniqueCart.map((p) => (
+                <CartListItem p={p} key={p.id} />
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <div className="p-4">
+          <p className="text-center text-xl text-red-500">
+            Oops your cart is empty 😟
+          </p>
+        </div>
+      )}
     </div>
   );
 };
